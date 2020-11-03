@@ -3,7 +3,7 @@
 
 import React from 'react'
 
-function uselocalstorageState(key, defaultvalue = '') {
+function UselocalstorageState(key, defaultvalue = '') {
   const [state, setState] = React.useState(
     () => window.localStorage.getItem(key) || defaultvalue,
   )
@@ -16,7 +16,7 @@ function uselocalstorageState(key, defaultvalue = '') {
 }
 
 function Greeting({initialName = ''}) {
-  const [name, setName] = uselocalstorageState('name', initialName)
+  const [name, setName] = UselocalstorageState('name', initialName)
 
   function handleChange(event) {
     setName(event.target.value)
@@ -25,7 +25,7 @@ function Greeting({initialName = ''}) {
     <div>
       <form>
         <label htmlFor="name">Name: </label>
-        <input onChange={handleChange} id="name" />
+        <input value={name} onChange={handleChange} id="name" />
       </form>
       {name ? <strong>Hello {name}</strong> : 'Please type your name'}
     </div>
